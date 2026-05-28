@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tharsh Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:black;
+            color:white;
+            overflow-x:hidden;
+        }
+
+        body::before{
+            content:'';
+            position:fixed;
+            width:400px;
+            height:400px;
+            background:gold;
+            filter:blur(180px);
+            opacity:0.2;
+            top:-100px;
+            left:-100px;
+            z-index:-1;
+        }
+
+        body::after{
+            content:'';
+            position:fixed;
+            width:400px;
+            height:400px;
+            background:orange;
+            filter:blur(180px);
+            opacity:0.15;
+            bottom:-100px;
+            right:-100px;
+            z-index:-1;
+        }
+
+        header{
+            width:100%;
+            padding:20px 10%;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            position:fixed;
+            top:0;
+            z-index:1000;
+            background:rgba(0,0,0,0.7);
+            backdrop-filter:blur(10px);
+        }
+
+        .logo{
+            font-size:32px;
+            font-weight:700;
+            color:gold;
+            letter-spacing:3px;
+            animation:glow 2s infinite alternate;
+        }
+
+        nav a{
+            color:white;
+            text-decoration:none;
+            margin-left:25px;
+            transition:0.3s;
+            font-weight:500;
+            position:relative;
+        }
+
+        nav a::after{
+            content:'';
+            position:absolute;
+            left:0;
+            bottom:-5px;
+            width:0%;
+            height:2px;
+            background:gold;
+            transition:0.4s;
+        }
+
+        nav a:hover::after{
+            width:100%;
+        }
+
+        nav a:hover{
+            color:gold;
+        }
+
+        section{
+            min-height:100vh;
+            padding:120px 10%;
+        }
+
+        .hero{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            gap:50px;
+            flex-wrap:wrap;
+        }
+
+        .hero-text h1{
+            font-size:65px;
+            line-height:1.2;
+        }
+
+        .hero-text span{
+            color:gold;
+        }
+
+        .typing{
+            color:gold;
+        }
+
+        .hero-text p{
+            margin-top:20px;
+            font-size:18px;
+            color:#cfcfcf;
+            max-width:600px;
+            line-height:32px;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:30px;
+            padding:14px 35px;
+            background:gold;
+            color:black;
+            text-decoration:none;
+            border-radius:40px;
+            font-weight:700;
+            transition:0.4s;
+            box-shadow:0 0 20px gold;
+        }
+
+        .btn:hover{
+            transform:scale(1.08);
+            box-shadow:0 0 35px gold;
+        }
+
+        .hero-image{
+            width:350px;
+            height:350px;
+            border-radius:50%;
+            background:linear-gradient(to right,gold,orange);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            box-shadow:0 0 40px gold;
+            animation:float 4s ease-in-out infinite;
+        }
+
+        .hero-image h2{
+            font-size:90px;
+            color:black;
+        }
+
+        @keyframes float{
+            0%{
+                transform:translateY(0px);
+            }
+            50%{
+                transform:translateY(-20px);
+            }
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        @keyframes glow{
+            from{
+                text-shadow:0 0 10px gold;
+            }
+            to{
+                text-shadow:0 0 25px orange;
+            }
+        }
+
+        .title{
+            text-align:center;
+            font-size:45px;
+            margin-bottom:60px;
+        }
+
+        .title span{
+            color:gold;
+        }
+
+        .about{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            flex-direction:column;
+        }
+
+        .about p{
+            max-width:850px;
+            font-size:18px;
+            line-height:35px;
+            color:#d6d6d6;
+        }
+
+        .skills-container,
+        .projects{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+            gap:30px;
+        }
+
+        .skill-box,
+        .project-card{
+            background:#111;
+            padding:40px;
+            border-radius:25px;
+            transition:0.5s;
+            border:1px solid #222;
+            opacity:0;
+            transform:translateY(60px);
+        }
+
+        .skill-box.show,
+        .project-card.show{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+        .skill-box:hover,
+        .project-card:hover{
+            transform:translateY(-10px);
+            border:1px solid gold;
+            box-shadow:0 0 30px gold;
+        }
+
+        .skill-box h3,
+        .project-card h3{
+            color:gold;
+            margin-bottom:15px;
+            font-size:28px;
+        }
+
+        .contact{
+            text-align:center;
+        }
+
+        .contact p{
+            margin:15px 0;
+            font-size:20px;
+        }
+
+        footer{
+            text-align:center;
+            padding:20px;
+            background:#111;
+            color:#aaa;
+        }
+
+        @media(max-width:900px){
+
+            .hero{
+                flex-direction:column-reverse;
+                text-align:center;
+            }
+
+            .hero-text h1{
+                font-size:45px;
+            }
+
+            nav{
+                display:none;
+            }
+
+            .hero-image{
+                width:260px;
+                height:260px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">THARSH</div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>Hello, I'm <span>Tharshini</span></h1>
+
+            <h1 class="typing"></h1>
+
+            <p>
+                Passionate web developer who creates stylish and modern websites
+                with creative UI, smooth animations and premium designs.
+            </p>
+
+            <a href="#contact" class="btn">Hire Me</a>
+        </div>
+
+        <div class="hero-image">
+            <h2>T</h2>
+        </div>
+
+    </section>
+
+    <section id="about">
+
+        <h1 class="title">About <span>Me</span></h1>
+
+        <div class="about">
+            <p>
+                I'm Tharshini, a creative developer who loves building modern
+                websites using HTML, CSS, JavaScript, Java and Python.
+                I enjoy designing attractive user interfaces and learning new technologies.
+                My dream is to become a successful full stack developer.
+            </p>
+        </div>
+
+    </section>
+
+    <section id="skills">
+
+        <h1 class="title">My <span>Skills</span></h1>
+
+        <div class="skills-container">
+
+            <div class="skill-box reveal">
+                <h3>HTML</h3>
+                <p>Responsive webpage structure and clean layouts.</p>
+            </div>
+
+            <div class="skill-box reveal">
+                <h3>CSS</h3>
+                <p>Animations, premium styling and modern UI designs.</p>
+            </div>
+
+            <div class="skill-box reveal">
+                <h3>JavaScript</h3>
+                <p>Interactive effects, animations and dynamic websites.</p>
+            </div>
+
+            <div class="skill-box reveal">
+                <h3>Python</h3>
+                <p>Problem solving and backend programming basics.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="projects">
+
+        <h1 class="title">My <span>Projects</span></h1>
+
+        <div class="projects">
+
+            <div class="project-card reveal">
+                <h3>Fashion Website</h3>
+                <p>Premium fashion UI with glowing effects and animations.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3>Portfolio Website</h3>
+                <p>Modern responsive personal portfolio with dark theme.</p>
+            </div>
+
+            <div class="project-card reveal">
+                <h3>Student System</h3>
+                <p>Java based student management application project.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="contact" id="contact">
+
+        <h1 class="title">Contact <span>Me</span></h1>
+
+        <p>📧 tharshini@email.com</p>
+        <p>📱 9894824607</p>
+        <p>📍 Tamil Nadu, India</p>
+
+        <a href="#home" class="btn">Back To Top</a>
+
+    </section>
+
+    <footer>
+        <p>© 2026 Tharshini Portfolio | Designed By Tharsh ❤️</p>
+    </footer>
+
+
+    <script>
+
+        // Typing Animation
+
+        const text = [
+            "Creative Web Developer",
+            "Frontend Designer",
+            "Java & Python Learner"
+        ];
+
+        let count = 0;
+        let index = 0;
+        let currentText = "";
+        let letter = "";
+
+        (function type(){
+
+            if(count === text.length){
+                count = 0;
+            }
+
+            currentText = text[count];
+            letter = currentText.slice(0, ++index);
+
+            document.querySelector('.typing').textContent = letter;
+
+            if(letter.length === currentText.length){
+                count++;
+                index = 0;
+                setTimeout(type,1000);
+            }
+            else{
+                setTimeout(type,120);
+            }
+
+        })();
+
+
+        // Scroll Reveal Animation
+
+        window.addEventListener('scroll',reveal);
+
+        function reveal(){
+
+            const reveals = document.querySelectorAll('.reveal');
+
+            for(let i=0;i<reveals.length;i++){
+
+                let windowHeight = window.innerHeight;
+                let revealTop = reveals[i].getBoundingClientRect().top;
+                let revealPoint = 100;
+
+                if(revealTop < windowHeight - revealPoint){
+                    reveals[i].classList.add('show');
+                }
+            }
+        }
+
+        reveal();
+
+    </script>
+
+</body>
+</html>

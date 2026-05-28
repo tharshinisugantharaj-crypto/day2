@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Our Webpage</title>
+        <link rel="stylesheet" href="index.css">
+         <style>
+            body{
+                background: linear-gradient(to right , black ,black,black,black, goldenrod,black,goldenrod,black);
+            }
+            h1{
+                color: goldenrod;
+                font-size: 90px;
+                margin-left: 100px;
+            }
+            img{
+                width: 90%;
+                height: 600px;
+                margin-left: 5%;
+                border: 15px black double;
+            }
+            h6{
+                font-size: 25px;
+                text-align: center;
+                color: silver;
+            }
+            h2{
+                color: silver;
+                font-size: 50px;
+                text-align: center;
+            }
+            .Sub{
+                transition: all 0.5s ease-in-out;
+                background-color: black;
+                width: 400px;
+                text-align: center;
+                 border: 5px silver solid;
+                 border-radius: 30px;
+            }
+           .Sub img{
+                width: 350px;
+                height: 250px;
+                margin-left: 0%;
+                border: 2px silver solid;
+                border-radius: 30px;
+            }
+            .Sub button{
+                  transition: all 0.5s ease-in-out;
+                width: 350px;
+                height: 45px;
+                background: linear-gradient(to right ,  black,goldenrod);
+                color: white;
+                font-size: large;
+                border: 2px goldenrod solid;
+                border-radius: 30px;
+            }
+            .Main{
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .Main:hover .Sub{
+                transform: scale(0.8);
+            }
+            .Main .Sub:hover{
+                transform: scale(0.9);
+            }
+            .Main .Sub:hover button{
+                 background: linear-gradient(to left ,goldenrod, black ,goldenrod);
+            }
+         </style>
+    </head>
+   
+    <body>
+      <h1>Great Golds</h1>
+      <img src="https://cdn0.weddingwire.in/vendor/7293/3_2/960/jpg/rr-gold-palace8_15_207293-1565358564.webp" alt="Main image here">
+
+      <h2 >Diamond Collections</h2>
+        <img src="https://img.freepik.com/premium-photo/women-wearing-fashion-diamond-neckless-with-different-color-black-background_693425-3439.jpg" alt="">
+      <br><br><br>
+      <div class="Main">
+        <div class="Sub">
+        <br><br>
+        <img src="https://images.stockcake.com/public/2/3/3/23389f62-7537-4e99-a058-3839c90c2e61_large/elegant-diamond-jewelry-stockcake.jpg" alt="">
+         <br><br>
+        <button>Explore</button>
+         <br><br>
+      </div>
+      <div class="Sub">
+        <br><br>
+        <img src="https://static.vecteezy.com/system/resources/previews/033/238/713/non_2x/necklace-diamonds-silver-free-photo.jpg" alt="">
+         <br><br>
+        <button>Explore</button>
+         <br><br>
+      </div>
+      <div class="Sub">
+        <br><br>
+        <img src="https://media.istockphoto.com/id/1127154603/photo/interwoven-diamond-engagement-ring-wedding-ring-on-black-background.jpg?s=612x612&w=0&k=20&c=O9lGOuSwnBMc_proWPjzLdcBMgm1GJWBz3NWIwUVbes=" alt="">
+         <br><br>
+        <button>Explore</button>
+         <br><br>
+      </div>
+      </div>
+      <h2 >Gold Collections</h2>
+      
+      <img src="https://t4.ftcdn.net/jpg/06/62/39/51/360_F_662395162_TDuD82dArHUo24OTnVCtM8dM12rWj9Zo.jpg" alt="">
+      <br><br><br>
+      <div class="Main">
+        <div class="Sub">
+        <br><br>
+        <img src="https://t4.ftcdn.net/jpg/11/68/40/39/360_F_1168403949_13Glph4RGJd8RnyiiecKdwU7XIByfG08.jpg" alt="">
+         <br><br>
+        <button>Explore</button>
+         <br><br>
+      </div>
+      <div class="Sub">
+        <br><br>
+        <img src="https://i.ytimg.com/vi/OiUO81M0-Ps/maxresdefault.jpg" alt="">
+         <br><br>
+        <button>Explore</button>
+         <br><br>
+      </div>
+      <div class="Sub">
+        <br><br>
+        <img src="https://wallpapers.com/images/hd/gold-jewellery-1600-x-1200-background-hy1fu4xe2iyvpxka.jpg" alt="">
+         <br><br>
+        <button>Explore</button>
+         <br><br>
+      </div>
+      </div>
+
+      <h6>book@gg.com</h6>
+    </body>
+    <script>
+       
+    </script>
+</html>
